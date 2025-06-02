@@ -4,6 +4,17 @@ const elements = {
     countdownDisplay: document.querySelector('.countdown__time'),
     countdownStartButton: document.querySelector('.countdown__start'),
     countdownStopButton: document.querySelector('.countdown__stop'),
+    countdownDuration: document.querySelector('.countdown__duration'),
+}
+
+function getDuration(){
+    elements.countdownDuration.value = Number(elements.countdownDuration.value);
+    
+    if(elements.countdownDuration.value === 0) {
+        alert('Укажите кол-во минут');
+    } else {
+        time = elements.countdownDuration.value * 60;
+    }
 }
 
 function countdown(time, display){
@@ -30,5 +41,6 @@ function countdown(time, display){
 }
 
 elements.countdownStartButton.addEventListener('click', () => {
+    getDuration();
     countdown(time, elements.countdownDisplay);
 })
